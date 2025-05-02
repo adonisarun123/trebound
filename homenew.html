@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>trebound - Team Building Activities</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            /* Updated Brand Colors */
+            --primary-brand: #E75A4C;  /* Reddish-Orange from logo */
+            --accent-brand: #F5A874;   /* Lighter Orange/Peach from logo */
+            --primary-brand-darker: #D94A3B; /* Slightly darker shade for hovers */
+
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA; /* Lighter, standard web gray */
+            --medium-gray: #E9ECEF;
+            --dark-gray: #495057; /* Softer dark gray */
+            --text-gray: #6C757D; /* Softer text gray */
+            --shadow-light: rgba(0, 0, 0, 0.04); /* Softer shadow */
+            --shadow-medium: rgba(0, 0, 0, 0.08); /* Softer medium shadow */
+
+            /* Semantic Colors */
+            --heading-color: #343A40; /* Darker heading for contrast */
+            --text-color: var(--text-gray);
+            --link-color: var(--primary-brand);
+            --link-hover-color: var(--primary-brand-darker);
+            --button-primary-bg: var(--primary-brand);
+            --button-primary-text: var(--white);
+            --button-primary-hover-bg: var(--primary-brand-darker);
+            --button-primary-hover-text: var(--white);
+            --button-secondary-text: var(--white);
+            --button-secondary-border: var(--white);
+            --button-secondary-hover-bg: var(--white);
+            --button-secondary-hover-text: var(--primary-brand);
+            --footer-bg: var(--heading-color); /* Darker footer */
+            --footer-text: rgba(255, 255, 255, 0.75);
+            --footer-heading-color: var(--white);
+            --footer-link-hover-color: var(--accent-brand);
+
+             /* Design System Elements */
+             --border-radius-sm: 6px;
+             --border-radius-md: 12px;
+             --border-radius-lg: 16px;
+             --section-padding-vertical: clamp(60px, 10vw, 100px);
+             --base-font-size: 16px; /* Base font size */
+             --line-height-base: 1.7;
+             --line-height-heading: 1.3;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: var(--base-font-size);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-color);
+            line-height: var(--line-height-base);
+            background-color: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--heading-color);
+            line-height: var(--line-height-heading);
+            margin-bottom: 0.75em; /* Consistent heading margin */
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 700;} /* Slightly larger H1 */
+        h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 1em;} /* Title-like H2 */
+        h3 { font-size: clamp(1.25rem, 3vw, 1.6rem); font-weight: 600; } /* Card titles etc. */
+        h4 { font-size: clamp(1.1rem, 2.5vw, 1.3rem); font-weight: 600; color: var(--text-color);}
+
+        p {
+            margin-bottom: 1.25rem; /* Slightly more space after paragraphs */
+        }
+
+        /* Ensure last element in a text block doesn't add extra margin */
+        p:last-child, h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child {
+            margin-bottom: 0;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px; /* More padding */
+        }
+
+        /* Utility Classes */
+        .section-padding {
+            padding: var(--section-padding-vertical) 0;
+        }
+        .text-center { text-align: center; }
+        .margin-bottom-small { margin-bottom: 1rem; }
+        .margin-bottom-medium { margin-bottom: 2rem; }
+        .margin-bottom-large { margin-bottom: 3rem; }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px var(--shadow-medium);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--heading-color);
+        }
+
+        .logo img {
+             max-height: 45px; /* Slightly larger logo */
+             width: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li:first-child {
+             margin-left: 0;
+        }
+
+        nav ul li a {
+            color: var(--dark-gray);
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+            letter-spacing: 0.5px; /* Slight letter spacing */
+            white-space: nowrap;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-brand); /* Use brand color for underline */
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+             width: 100%;
+        }
+
+        .cta-button, .secondary-button {
+            padding: 12px 30px; /* Larger padding */
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+            text-align: center;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button {
+            background-color: var(--button-primary-bg);
+            color: var(--button-primary-text); /* Better contrast */
+            border-color: var(--button-primary-bg);
+        }
+        .cta-button:hover {
+            background-color: var(--button-primary-hover-bg);
+            border-color: var(--button-primary-hover-bg);
+            color: var(--button-primary-hover-text);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--button-secondary-text);
+            border-color: var(--button-secondary-border);
+        }
+        .secondary-button:hover {
+            background-color: var(--button-secondary-hover-bg);
+            color: var(--button-secondary-hover-text); /* Corrected variable name */
+        }
+
+        .mobile-menu-toggle {
+            display: none; /* Hidden by default */
+            background: none;
+            border: none;
+            font-size: 1.8rem; /* Larger toggle */
+            color: var(--primary-brand); /* Use brand color */
+            cursor: pointer;
+        }
+
+        /* Style Desktop CTA Button */
+        .desktop-cta-button {
+            flex-shrink: 0; /* Prevent button from shrinking */
+            margin-left: 30px; /* Add space between nav and button */
+        }
+
+        /* Hero Section */
+        .hero {
+            /* Updated Hero Background - Replace with your high-quality hero image */
+            background: linear-gradient(rgba(40, 40, 60, 0.7), rgba(40, 40, 60, 0.7)), /* Slightly softer overlay */
+                        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'); /* Example modern office/team background */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+            color: var(--white);
+            padding: 140px 0 120px;
+            min-height: 70vh; /* Ensure hero takes significant viewport height */
+            display: flex;
+            align-items: center;
+        }
+
+        .hero h1 {
+            color: var(--white); /* Keep hero heading white */
+            margin-bottom: 1rem; /* Reduced margin */
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem); /* Larger hero text */
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            font-weight: 400; /* Lighter weight for hero description */
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        /* Trust Indicators */
+        .trust-section {
+            background-color: var(--light-gray); /* Use light gray for contrast */
+        }
+
+        .trust-section .section-subtitle {
+            color: var(--heading-color);
+            font-weight: 600;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .trust-logos {
+            display: flex;
+            width: fit-content; /* Allow width to expand for all logos */
+            animation: scrollLogos 30s linear infinite; /* Adjust duration for speed */
+            margin-bottom: 30px;
+        }
+
+        /* Wrapper to hide overflow */
+        .trust-logos-container {
+            overflow: hidden;
+            position: relative; /* For potential fade effects */
+            margin-bottom: 30px;
+            padding: 10px 0; /* Add some vertical padding */
+            width: 100%;
+        }
+
+        /* Optional: Fade edges */
+        .trust-logos-container::before,
+        .trust-logos-container::after {
+             content: '';
+             position: absolute;
+             top: 0;
+             bottom: 0;
+             width: 100px; /* Width of the fade */
+             z-index: 2;
+             pointer-events: none;
+        }
+        .trust-logos-container::before {
+             left: 0;
+             background: linear-gradient(to right, var(--light-gray) 20%, transparent);
+        }
+         .trust-logos-container::after {
+             right: 0;
+             background: linear-gradient(to left, var(--light-gray) 20%, transparent);
+         }
+
+        @keyframes scrollLogos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                /* Scroll exactly one set of logos (assumes duplication) */
+                transform: translateX(-50%);
+            }
+        }
+
+        .trust-logo {
+            width: 120px;
+            filter: grayscale(100%); /* Subtle effect */
+            opacity: 0.7;
+            margin-right: 60px; /* Add space between logos */
+            flex-shrink: 0; /* Prevent logos from shrinking */
+            transition: all 0.3s ease;
+        }
+        .trust-logo:hover {
+             filter: grayscale(0%);
+             opacity: 1;
+        }
+
+        .reviews {
+            font-size: 1.1rem;
+            color: var(--heading-color);
+            font-weight: 500;
+        }
+        .reviews .stars {
+            color: gold;
+            margin-right: 5px;
+        }
+
+        /* Featured Activities */
+        .activities-section {
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px var(--shadow-medium);
+        }
+
+        .activity-image {
+            height: 220px; /* Slightly taller */
+            background-color: var(--medium-gray);
+            overflow: hidden; /* Ensure image fits */
+        }
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure image covers the area */
+        }
+
+        .activity-content {
+            padding: 25px;
+            flex-grow: 1; /* Ensure content area takes remaining space */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .activity-content h3 {
+            margin-bottom: 10px;
+        }
+        .activity-content p {
+            flex-grow: 1; /* Push link to bottom */
+            margin-bottom: 15px;
+        }
+
+        .activity-link {
+            color: var(--link-color);
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start; /* Align link to the start */
+            margin-top: auto; /* Pushes link down */
+        }
+        .activity-link i { /* Style for potential icon */
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        .activity-link:hover i {
+             transform: translateX(5px);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background-color: var(--light-gray);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .step {
+            /* No flex needed with grid */
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white); /* Changed background */
+            border: 2px solid var(--accent-brand); /* Use accent color */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-brand); /* Use primary color for icon */
+            font-size: 2rem; /* Larger icon */
+            box-shadow: 0 4px 10px var(--shadow-light);
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+             color: var(--heading-color); /* Ensure step heading uses brand color */
+        }
+
+        .steps-cta {
+            text-align: center;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-card {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            border-left: 5px solid var(--accent-brand); /* Use accent color */
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px; /* Space for quote icon */
+        }
+        .testimonial-text::before {
+             content: '\f10d'; /* FontAwesome quote-left */
+             font-family: 'Font Awesome 6 Free';
+             font-weight: 900;
+             position: absolute;
+             left: 0;
+             top: -5px;
+             font-size: 1.5rem;
+             color: var(--accent-brand); /* Use accent color */
+             opacity: 0.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--heading-color);
+            display: block; /* Ensure it's on its own line */
+            margin-top: 10px;
+        }
+
+        .stars {
+            color: gold;
+            margin-top: 5px; /* Reduced margin */
+            font-size: 1.1rem;
+        }
+
+        .video-testimonial {
+            background-color: var(--medium-gray);
+            height: 350px; /* Slightly taller */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-top: 40px; /* Increased margin */
+            color: var(--primary-brand);
+            font-weight: 600;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .video-testimonial::before { /* Play button overlay */
+            content: '\f04b'; /* FontAwesome play icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 4rem;
+            color: var(--white);
+            background-color: rgba(245, 168, 116, 0.7); /* Semi-transparent background - Use RGBA of accent */
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        .video-testimonial:hover::before {
+             background-color: rgba(245, 168, 116, 0.8); /* Accent color on hover - Use RGBA of accent */
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--light-gray);
+        }
+
+        .faq-container {
+             max-width: 850px; /* Slightly wider */
+             margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 10px; /* Reduced space */
+            background-color: var(--white);
+            border-radius: var(--border-radius-md);
+            border: 1px solid var(--medium-gray);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--heading-color);
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+        .faq-question::after { /* Arrow icon */
+            content: '\f078'; /* FontAwesome chevron-down */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.3s ease;
+            color: var(--accent-brand);
+            font-size: 0.9rem;
+        }
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px 0 25px; /* Adjust padding */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        .faq-answer p {
+            margin-bottom: 0;
+            padding-bottom: 25px; /* Add padding to paragraph inside */
+            color: var(--text-color);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 400px; /* Adjust as needed */
+        }
+
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            padding: var(--section-padding-vertical) 0 40px 0; /* More top padding, less bottom */
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust minmax */
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            max-height: 45px; /* Adjust as needed for footer */
+            width: auto;
+            margin-bottom: 15px;
+        }
+
+        .footer-tagline {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--footer-heading-color);
+            font-weight: 600; /* Use semi-bold */
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px; /* Increased spacing */
+        }
+
+        .footer-links a {
+            color: var(--footer-text);
+            transition: color 0.3s ease, padding-left 0.3s ease; /* Smooth transitions */
+        }
+        .footer-links a:hover {
+            color: var(--footer-link-hover-color);
+            padding-left: 5px; /* Subtle indent on hover */
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: var(--footer-text);
+            font-size: 1.3rem; /* Slightly larger */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--footer-link-hover-color);
+            transform: scale(1.1); /* Slight scale effect */
+        }
+
+        .newsletter h4 {
+             margin-bottom: 15px; /* Reduced margin */
+             font-size: 1.1rem;
+             color: var(--footer-heading-color);
+             font-weight: 600;
+        }
+        .newsletter form {
+            display: flex; /* Align input and button */
+            gap: 10px;
+            flex-wrap: wrap; /* Allow wrap on small screens */
+        }
+        .newsletter input[type="email"] {
+            flex-grow: 1; /* Take available space */
+            padding: 12px 15px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            min-width: 150px; /* Ensure minimum width */
+        }
+        .newsletter input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        /* Style newsletter button like primary button but inverted for footer */
+        .newsletter button.cta-button {
+            padding: 10px 20px;
+            flex-shrink: 0;
+            background-color: var(--accent-brand); 
+            color: var(--primary-brand-darker); 
+            border-color: var(--accent-brand);
+        }
+          .newsletter button.cta-button:hover {
+              background-color: var(--white);
+              color: var(--primary-brand);
+              border-color: var(--white);
+          }
+
+
+        .copyright {
+            text-align: center;
+            padding: 30px 0 0 0; /* Only top padding */
+            margin-top: 50px; /* Added margin */
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        .copyright a {
+             color: var(--footer-text);
+        }
+         .copyright a:hover {
+             color: var(--footer-link-hover-color);
+         }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+             /* Hide Desktop Nav Items and Button */
+             #main-nav ul {
+                 display: none;
+             }
+             .desktop-cta-button {
+                 display: none;
+             }
+
+             /* Show Mobile Toggle */
+             .mobile-menu-toggle {
+                 display: block;
+             }
+
+             /* Mobile Nav Panel Styling (Hidden by default) */
+              #main-nav { /* Target the container */
+                   display: none; /* Hide desktop nav */
+                   position: absolute;
+                   top: 100%; /* Position below header */
+                   left: 0;
+                   width: 100%;
+                   background-color: var(--white);
+                   box-shadow: 0 5px 10px var(--shadow-medium);
+                   flex-direction: column; /* Stack items vertically */
+                   align-items: stretch; /* Stretch items */
+                   padding: 10px 0;
+               }
+               /* Show Mobile Nav Panel when Active */
+               #main-nav.active {
+                   display: flex; /* Show when active */
+                   flex-direction: column; /* Stack items vertically */
+               }
+               /* Styles for list inside the OPEN mobile panel */
+               #main-nav.active ul {
+                   display: flex; /* Use flex here too */
+                   flex-direction: column;
+                   align-items: stretch; /* Stretch links full width */
+                   width: 100%;
+                   margin: 0;
+                   padding: 0;
+               }
+               #main-nav.active ul li {
+                   margin: 10px 0;
+                   width: 100%;
+                   text-align: center;
+               }
+               #main-nav.active ul li:last-child {
+                    margin-top: 20px; /* Space before mobile CTA */
+               }
+               #main-nav.active ul li a {
+                    padding: 10px 20px;
+                    display: block; /* Make links full width */
+                    width: 100%;
+                }
+               #main-nav.active ul li a::after {
+                    display: none; /* Hide underline on mobile */
+                }
+               /* Ensure mobile CTA button uses button styles */
+               .nav-cta-button-mobile {
+                   display: inline-block; /* Allow text alignment */
+                   /* Inherits .cta-button styles */
+                }
+             .event-item {
+                 flex-direction: column !important; /* Stack event items */
+                 gap: 0;
+             }
+             .event-item-image {
+                 flex-basis: auto;
+                 max-width: 100%;
+                 height: 250px; /* Adjust height for mobile */
+             }
+             .event-item-content {
+                 padding: 30px;
+             }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 80px; /* Further adjust hero padding */
+                text-align: center;
+                min-height: auto;
+            }
+            .hero-buttons {
+                justify-content: center; /* Center buttons when wrapped */
+                gap: 15px;
+            }
+            .steps {
+                 gap: 30px;
+            }
+            .footer-container {
+                 grid-template-columns: 1fr; /* Stack footer columns */
+                 text-align: center;
+            }
+            .footer-about, .footer-links, .newsletter {
+                 margin-bottom: 30px;
+            }
+            .social-links {
+                 justify-content: center;
+            }
+            .newsletter form {
+                justify-content: center;
+            }
+            .newsletter input[type="email"] {
+                 width: 100%; /* Make input full width */
+                 max-width: 350px; /* Optional max width */
+                 margin: 0 auto 10px; /* Center and add bottom margin */
+            }
+            .newsletter button.cta-button {
+                 padding: 10px 25px; /* Adjust button padding */
+            }
+            .event-item-image {
+                 height: 200px; /* Smaller image on small mobile */
+             }
+             .event-item-content h3 {
+                 font-size: 1.4rem;
+             }
+        }
+
+        /* New Section Styles */
+        .section-intro {
+            max-width: 700px;
+            margin: 0 auto 60px auto; /* More bottom margin */
+            text-align: center;
+        }
+
+        .section-intro p {
+             font-size: 1.1rem;
+             color: var(--text-gray);
+         }
+
+        .grid-container {
+            display: grid;
+            gap: 30px;
+        }
+
+        /* Default 3-column grid */
+        .grid-3-cols {
+             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        /* Specific grid for venues (maybe 4 cols?) */
+        .grid-venues {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Generic Card Style */
+        .content-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg); /* Larger radius */
+            overflow: hidden;
+            box-shadow: 0 4px 15px var(--shadow-light); /* Softer shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Ensure cards in a row have same height */
+            border: 1px solid var(--medium-gray); /* Subtle border */
+        }
+
+        .content-card:hover {
+            transform: translateY(-8px); /* Slightly less lift */
+            box-shadow: 0 8px 25px var(--shadow-medium); /* Slightly larger hover shadow */
+        }
+
+        .card-image {
+            height: 220px; /* Taller images */
+            background-color: var(--medium-gray);
+            overflow: hidden;
+        }
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .content-card:hover .card-image img {
+             transform: scale(1.05);
+        }
+
+
+        .card-content {
+            padding: 30px; /* More padding */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.75em;
+        }
+
+        .card-content p {
+            flex-grow: 1;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            color: var(--link-color);
+            font-weight: 600;
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+        .card-link i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        .card-link:hover i {
+             transform: translateX(5px);
+        }
+
+        /* Venue Card Specifics */
+        .venue-card .card-content {
+             /* text-align: center; */
+        }
+         .venue-card .card-image {
+             height: 200px; /* Consistent image height */
+         }
+         .venue-card h3 {
+             font-size: 1.3rem;
+             text-align: center; /* Center just the heading */
+         }
+         .venue-card .card-content {
+              padding: 25px;
+         }
+
+        /* Gifting Card Specifics */
+        .gifting-card .card-image {
+             height: 240px; /* Consistent image height */
+         }
+
+        /* Event Card Specifics */
+         .event-card {
+             background-color: var(--light-gray); /* Different bg for events */
+             /* border: none; */ /* Keep border for consistency or remove if preferred */
+         }
+
+        /* Updated Events/Case Study Section Styles */
+        .event-item {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px; /* Space between items */
+            background-color: var(--white); /* Reset background */
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: 0 6px 20px var(--shadow-light);
+            border: 1px solid var(--medium-gray);
+        }
+
+        /* Reverse layout for odd items */
+        .event-item:nth-child(odd) {
+             flex-direction: row-reverse;
+        }
+
+        .event-item-image {
+            flex: 0 0 45%; /* Fixed width for image container */
+            max-width: 45%;
+            height: 350px; /* Fixed height */
+            overflow: hidden;
+        }
+
+        .event-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .event-item:hover .event-item-image img {
+            transform: scale(1.03);
+        }
+
+        .event-item-content {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .event-item-content h3 {
+             font-size: 1.6rem; /* Larger title for case studies */
+             margin-bottom: 0.75em;
+        }
+         .event-item-content p {
+              font-size: 1rem;
+              margin-bottom: 1.5em;
+          }
+        .event-item-content .card-link {
+             font-size: 1rem;
+          }
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <img src="https://cdn.prod.website-files.com/61ead40fcee1ea7e99aa2b1f/66f54b982ce090736e4e4d1c_Tewbound%20Hover.png" alt="trebound logo"> <!-- Logo Image -->
+            </a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#activities-overview">Activities</a></li>
+                    <li><a href="#venues">Venues</a></li>
+                    <li><a href="#virtual">Virtual</a></li>
+                    <li><a href="#gifting">Gifting</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#contact" class="cta-button nav-cta-button-mobile">Get a Free Quote</a></li>
+                </ul>
+            </nav>
+
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section-padding" id="home">
+        <div class="container text-center">
+            <h1>Transform Your Team with Engaging Activities</h1>
+            <p class="margin-bottom-large">Virtual, in-person, and hybrid team-building experiences designed for connection, collaboration, and fun.</p>
+            <div class="hero-buttons">
+                <a href="#activities-overview" class="cta-button">Browse Activities</a>
+                <a href="#contact" class="secondary-button">Talk to an Expert</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="trust-section section-padding text-center">
+        <div class="container">
+            <p class="section-subtitle">Trusted by 1,000+ Companies Worldwide Including</p>
+            <div class="trust-logos-container">
+                <div class="trust-logos">
+                    <!-- Original Set -->
+                    <img src="https://logo.clearbit.com/slack.com?size=150" alt="Slack Logo" class="trust-logo" title="Slack">
+                    <img src="https://logo.clearbit.com/airbnb.com?size=150" alt="Airbnb Logo" class="trust-logo" title="Airbnb">
+                    <img src="https://logo.clearbit.com/shopify.com?size=150" alt="Shopify Logo" class="trust-logo" title="Shopify">
+                    <img src="https://logo.clearbit.com/google.com?size=150" alt="Google Logo" class="trust-logo" title="Google">
+                    <img src="https://logo.clearbit.com/spotify.com?size=150" alt="Spotify Logo" class="trust-logo" title="Spotify">
+                    <img src="https://logo.clearbit.com/microsoft.com?size=150" alt="Microsoft Logo" class="trust-logo" title="Microsoft">
+                    <img src="https://logo.clearbit.com/amazon.com?size=150" alt="Amazon Logo" class="trust-logo" title="Amazon">
+
+                    <!-- Duplicated Set for Seamless Loop -->
+                    <img src="https://logo.clearbit.com/slack.com?size=150" alt="" class="trust-logo" title="Slack" aria-hidden="true">
+                    <img src="https://logo.clearbit.com/airbnb.com?size=150" alt="" class="trust-logo" title="Airbnb" aria-hidden="true">
+                    <img src="https://logo.clearbit.com/shopify.com?size=150" alt="" class="trust-logo" title="Shopify" aria-hidden="true">
+                    <img src="https://logo.clearbit.com/google.com?size=150" alt="" class="trust-logo" title="Google" aria-hidden="true">
+                    <img src="https://logo.clearbit.com/spotify.com?size=150" alt="" class="trust-logo" title="Spotify" aria-hidden="true">
+                    <img src="https://logo.clearbit.com/microsoft.com?size=150" alt="" class="trust-logo" title="Microsoft" aria-hidden="true">
+                    <img src="https://logo.clearbit.com/amazon.com?size=150" alt="" class="trust-logo" title="Amazon" aria-hidden="true">
+                </div>
+            </div>
+            <div class="reviews">
+                <span class="stars" aria-label="4.9 out of 5 stars">★★★★<span style="color:var(--medium-gray)">★</span></span> 4.9/5 (Based on 200+ Reviews)
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Overview Section -->
+    <section class="section-padding" id="activities-overview">
+        <div class="container">
+            <h2 class="section-title">Unforgettable Team Experiences</h2>
+             <div class="section-intro">
+                 <p>From thrilling outdoor adventures to engaging virtual workshops, we offer a wide range of activities designed to boost morale, enhance collaboration, and create lasting memories.</p>
+             </div>
+
+            <div class="grid-container grid-3-cols">
+
+                <article class="content-card">
+                    <figure class="card-image">
+                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Team participating in an outdoor activity">
+                    </figure>
+                    <div class="card-content">
+                        <h3>In-Person Activities</h3>
+                        <p>Energize your team with hands-on workshops, city scavenger hunts, cooking challenges, and more at a location of your choice.</p>
+                        <a href="#" class="card-link">Explore In-Person <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                     <figure class="card-image">
+                         <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Team collaborating on a virtual whiteboard">
+                     </figure>
+                    <div class="card-content">
+                        <h3>Virtual Activities</h3>
+                        <p>Connect your remote or hybrid teams with interactive online games, virtual escape rooms, guided mindfulness sessions, and creative workshops.</p>
+                        <a href="#virtual" class="card-link">Discover Virtual <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                     <figure class="card-image">
+                         <img src="https://images.unsplash.com/photo-1604328698692-f76ea9498e76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Collage of in-person and virtual participants">
+                     </figure>
+                    <div class="card-content">
+                        <h3>Hybrid Solutions</h3>
+                        <p>Seamlessly integrate your in-office and remote employees with activities specifically designed for a mixed workforce.</p>
+                        <a href="#" class="card-link">See Hybrid Options <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Venues Section -->
+    <section class="section-padding" id="venues" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">Inspiring Venues</h2>
+             <div class="section-intro">
+                 <p>We partner with unique and exciting venues across the country, or we can bring the fun directly to your office or chosen location.</p>
+             </div>
+
+             <div class="grid-container grid-venues"> 
+
+                <article class="content-card venue-card">
+                    <figure class="card-image">
+                        <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Modern city loft space with large windows">
+                    </figure>
+                    <div class="card-content">
+                        <h3>Urban Lofts</h3>
+                        <p>Chic, modern spaces in the heart of the city, perfect for workshops and creative sessions.</p>
+                    </div>
+                </article>
+
+                <article class="content-card venue-card">
+                    <figure class="card-image">
+                         <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Peaceful lake house surrounded by trees">
+                     </figure>
+                     <div class="card-content">
+                         <h3>Country Retreats</h3>
+                         <p>Escape the hustle and bustle with serene locations ideal for focused team building and strategy.</p>
+                     </div>
+                </article>
+
+                <article class="content-card venue-card">
+                    <figure class="card-image">
+                         <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Team meeting in a modern office space">
+                     </figure>
+                     <div class="card-content">
+                         <h3>Your Office</h3>
+                         <p>We bring the fun and engagement directly to your familiar workspace, minimizing disruption.</p>
+                     </div>
+                </article>
+
+                <article class="content-card venue-card">
+                     <figure class="card-image">
+                          <img src="https://images.unsplash.com/photo-1558642643-0d0a4560e8a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Group of people doing a team activity on a green lawn">
+                       </figure>
+                       <div class="card-content">
+                           <h3>Outdoor Spaces</h3>
+                           <p>Leverage parks, beaches, or other outdoor areas for active and refreshing team events.</p>
+                       </div>
+                </article>
+
+             </div>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="#contact" class="cta-button">Discuss Venue Options</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Activities Section -->
+    <section class="section-padding" id="virtual">
+        <div class="container">
+            <h2 class="section-title">Engaging Virtual Experiences</h2>
+            <div class="section-intro">
+                 <p>Keep your remote and hybrid teams connected, engaged, and motivated with our expertly facilitated virtual activities. Easy to join, hard to forget!</p>
+            </div>
+
+            <div class="grid-container grid-3-cols">
+
+                <article class="content-card">
+                    <figure class="card-image">
+                        <img src="https://images.unsplash.com/photo-1580894732444-8ecded794d1f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Computer screen showing a digital key and puzzle interface">
+                    </figure>
+                    <div class="card-content">
+                        <h3>Virtual Escape Rooms</h3>
+                        <p>Collaborative problem-solving challenges that test wits and teamwork against the clock.</p>
+                        <a href="#" class="card-link">Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                     <figure class="card-image">
+                         <img src="https://images.unsplash.com/photo-1616507176859-11c910ff86dd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Excited person reacting to an online game or quiz">
+                     </figure>
+                    <div class="card-content">
+                        <h3>Online Game Shows</h3>
+                        <p>Fast-paced trivia, Pictionary, and custom gameshows hosted by energetic presenters.</p>
+                        <a href="#" class="card-link">Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="content-card">
+                     <figure class="card-image">
+                         <img src="https://images.unsplash.com/photo-1569183320760-d5c57cc26a60?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Person participating in an online cocktail making class">
+                     </figure>
+                    <div class="card-content">
+                        <h3>Creative Workshops</h3>
+                        <p>Virtual mixology classes, painting sessions, mindfulness workshops, and more.</p>
+                        <a href="#" class="card-link">Details <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+
+             <div class="text-center" style="margin-top: 40px;">
+                <a href="#" class="cta-button">See All Virtual Activities</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Gifting Section -->
+    <section class="section-padding" id="gifting" style="background-color: var(--light-gray);">
+        <div class="container">
+            <h2 class="section-title">Thoughtful Corporate Gifting</h2>
+             <div class="section-intro">
+                 <p>Show appreciation and strengthen relationships with curated gift boxes delivered directly to your employees or clients. Perfect for holidays, milestones, or just because.</p>
+             </div>
+
+             <div class="grid-container grid-3-cols">
+
+                <article class="content-card gifting-card">
+                    <figure class="card-image">
+                        <img src="https://images.unsplash.com/photo-1593115057322-e94b77572f20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Welcome kit box with branded notebook and mug">
+                    </figure>
+                    <div class="card-content">
+                        <h3>Onboarding Kits</h3>
+                        <p>Make new hires feel instantly welcome and part of the team.</p>
+                        <a href="#" class="card-link">Explore Kits <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                 <article class="content-card gifting-card">
+                    <figure class="card-image">
+                        <img src="https://images.unsplash.com/photo-1572200109538-5b4b35a84456?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Gift box filled with treats and a thank you card">
+                    </figure>
+                    <div class="card-content">
+                        <h3>Employee Appreciation</h3>
+                        <p>Boost morale and recognize hard work with delightful gift boxes.</p>
+                        <a href="#" class="card-link">Explore Boxes <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <article class="content-card gifting-card">
+                    <figure class="card-image">
+                        <img src="https://images.unsplash.com/photo-1620499278419-1068a57e1a02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Luxury gift box tied with a ribbon for corporate clients">
+                    </figure>
+                    <div class="card-content">
+                        <h3>Client & Partner Gifts</h3>
+                        <p>Strengthen business relationships with memorable and branded gifts.</p>
+                        <a href="#" class="card-link">Explore Gifts <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+             </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="#contact" class="cta-button">Design Your Gift Box</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section (Example: Case Studies or Featured Events) -->
+    <section class="section-padding" id="events">
+        <div class="container">
+            <h2 class="section-title">Featured Events & Case Studies</h2>
+            <div class="section-intro">
+                 <p>See how we've helped companies like yours build stronger teams and achieve their goals through customized events.</p>
+            </div>
+
+            <div class="events-list">
+                <article class="event-item">
+                     <figure class="event-item-image">
+                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Team photo from a company retreat">
+                     </figure>
+                    <div class="event-item-content">
+                        <h3>Case Study: Boosting Collaboration for Tech Startup</h3>
+                        <p>How a multi-day retreat with tailored activities improved cross-departmental communication and innovation, leading to a 20% increase in project completion speed.</p>
+                        <a href="#" class="cta-button">Read Case Study</a>
+                    </div>
+                </article>
+                <article class="event-item">
+                    <figure class="event-item-image">
+                        <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="Screenshot of a large virtual meeting">
+                    </figure>
+                    <div class="event-item-content">
+                        <h3>Featured Event: Global Virtual Summit Energizer</h3>
+                        <p>Engaging a diverse, global team during a week-long virtual summit with short, high-energy activities boosted attendee satisfaction scores by 35%.</p>
+                        <a href="#" class="cta-button">Learn More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                         <img src="https://cdn.prod.website-files.com/61ead40fcee1ea7e99aa2b1f/66f54b982ce090736e4e4d1c_Tewbound%20Hover.png" alt="trebound logo"> <!-- Logo Image -->
+                    </div>
+                    <p class="footer-tagline">Building stronger, more connected teams, wherever they are.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Approach</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press & Media</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Activities</h4>
+                    <ul>
+                        <li><a href="#">Virtual Events</a></li>
+                        <li><a href="#">In-Person Events</a></li>
+                        <li><a href="#">Hybrid Events</a></li>
+                        <li><a href="#">All Activities</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Team Building Guide</a></li>
+                        <li><a href="#">Remote Work Tips</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                         <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="newsletter">
+                    <h4>Stay Connected</h4>
+                    <p>Get team-building insights and updates directly to your inbox.</p>
+                    <form action="#" method="post">
+                         <input type="email" name="email" placeholder="your.email@company.com" required aria-label="Email address for newsletter">
+                         <button type="submit" class="cta-button">Subscribe</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="current-year"></span> trebound. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        // Check if faqItems exist before adding listeners
+        if (faqItems.length > 0) {
+            faqItems.forEach(item => {
+                const questionButton = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+
+                // Skip if elements not found within an item
+                if (!questionButton || !answer) return;
+
+                questionButton.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all others OPTIONALLY - uncomment if desired
+                    // faqItems.forEach(otherItem => {
+                    //    if (otherItem !== item) {
+                    //        otherItem.classList.remove('active');
+                    //        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    //        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    //    }
+                    // });
+
+                    if (!isActive) {
+                        item.classList.add('active');
+                        questionButton.setAttribute('aria-expanded', 'true');
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    } else {
+                        item.classList.remove('active');
+                        questionButton.setAttribute('aria-expanded', 'false');
+                        answer.style.maxHeight = null;
+                    }
+                });
+
+                // Ensure aria-controls matches answer ID
+                const answerId = answer.getAttribute('id');
+                if (answerId) {
+                    questionButton.setAttribute('aria-controls', answerId);
+                } else {
+                     // Auto-generate ID if missing for accessibility
+                     const newId = `faq-answer-${Math.random().toString(36).substring(2, 9)}`;
+                     answer.setAttribute('id', newId);
+                     questionButton.setAttribute('aria-controls', newId);
+                 }
+            });
+        }
+
+        // Mobile Navigation Toggle
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav = document.querySelector('#main-nav');
+        const navIcon = menuToggle.querySelector('i');
+
+        menuToggle.addEventListener('click', () => {
+            const isExpanded = mainNav.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isExpanded);
+
+            if (isExpanded) {
+                navIcon.classList.remove('fa-bars');
+                navIcon.classList.add('fa-times');
+            } else {
+                navIcon.classList.remove('fa-times');
+                navIcon.classList.add('fa-bars');
+            }
+        });
+
+         // Close mobile menu when a nav link is clicked
+         const navLinks = mainNav.querySelectorAll('a');
+         const header = document.querySelector('header');
+
+         navLinks.forEach(link => {
+             link.addEventListener('click', (e) => {
+                 const hrefAttribute = link.getAttribute('href');
+
+                 if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    navIcon.classList.remove('fa-times');
+                    navIcon.classList.add('fa-bars');
+                 }
+
+                 if (hrefAttribute && hrefAttribute.startsWith('#') && hrefAttribute.length > 1) {
+                    const targetElement = document.querySelector(hrefAttribute);
+                    if (targetElement) {
+                         e.preventDefault();
+                         const headerHeight = header ? header.offsetHeight : 0;
+                         const elementPosition = targetElement.getBoundingClientRect().top;
+                         const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                         window.scrollTo({
+                             top: offsetPosition,
+                             behavior: "smooth"
+                         });
+                    }
+                 }
+             });
+         });
+
+        // Update Copyright Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html> 
