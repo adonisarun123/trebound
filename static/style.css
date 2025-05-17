@@ -1,0 +1,294 @@
+/*******************************
+ Trebound Strategy – Global Styles
+ Inspired by Apple HIG (Human Interface Guidelines)
+*******************************/
+
+/* Font & Base */
+:root {
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --text-color: #1d1d1f;
+  --muted-color: #6e6e73;
+  --accent-color: #0071e3;
+  --max-width: 960px;
+
+  /* Pastel palette for section backgrounds */
+  --pastel-1: #fef6e4;
+  --pastel-2: #e4f0f6;
+  --pastel-3: #f6e4f5;
+  --pastel-4: #eaf6e4;
+  --pastel-5: #f6eee4;
+  --pastel-6: #e4f6f0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-stack);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  background-color: #fff;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Header & Navigation */
+.site-header {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  height: 48vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.parallax {
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.35);
+}
+
+.header-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
+.logo a {
+  display: inline-block;
+  width: 180px;
+  height: 48px;
+  background: url('https://cdn.prod.website-files.com/61ead40fcee1ea7e99aa2b1f/66f54b982ce090736e4e4d1c_Tewbound%20Hover.png') center/contain no-repeat;
+  text-indent: -9999px;
+}
+
+/* Burger Menu */
+.nav {
+  position: relative;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 3;
+}
+
+.burger span,
+.burger span::before,
+.burger span::after {
+  display: block;
+  background: #fff;
+  height: 2px;
+  width: 22px;
+  border-radius: 1px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.burger span::before,
+.burger span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.burger span::before { top: -6px; }
+.burger span::after  { top:  6px; }
+
+#nav-toggle {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.menu a:hover {
+  opacity: 0.7;
+}
+
+/* Mobile Navigation */
+@media (max-width: 720px) {
+  .burger {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0,0,0,0.85);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    border-bottom-left-radius: 8px;
+  }
+  #nav-toggle:checked + .burger + .menu {
+    max-height: 300px;
+  }
+}
+
+.hero-title {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  padding-bottom: 2rem;
+}
+
+.hero-title h2 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Typography & Prose */
+.prose {
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+#md-content.prose {
+  /* Ensure dynamic content uses same styling */
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5 {
+  font-weight: 600;
+  color: var(--text-color);
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h1 { font-size: 2rem; }
+.prose h2 { font-size: 1.6rem; }
+.prose h3 { font-size: 1.35rem; }
+.prose h4 { font-size: 1.15rem; }
+.prose h5 { font-size: 1rem; }
+
+.prose p, .prose ul, .prose ol, .prose table {
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  color: var(--muted-color);
+}
+
+.prose ul, .prose ol {
+  padding-left: 1.25rem;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.prose table th, .prose table td {
+  border: 1px solid #e5e5e5;
+  padding: 0.75rem 1rem;
+}
+
+.codehilite {
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+/* Footer */
+.site-footer {
+  background: #f5f5f7;
+  padding: 2.5rem 0;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--muted-color);
+}
+
+/* -------------------------------------------------------- */
+/* Collapsible Section Blocks                               */
+/* -------------------------------------------------------- */
+
+details.section-block {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  margin-bottom: 1.75rem;
+  padding: 0.5rem 1rem 1rem;
+  transition: background 0.3s ease;
+}
+
+details.section-block summary {
+  list-style: none;
+  position: relative;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0.5rem 0 1rem;
+  cursor: pointer;
+}
+
+details.section-block summary::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s ease;
+}
+
+details.section-block[open] summary::after {
+  transform: rotate(-180deg);
+}
+
+/* Better list alignment within pastel blocks */
+details.section-block ul,
+details.section-block ol {
+  padding-left: 1.75rem;
+  margin-bottom: 1rem;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+details.section-block li {
+  margin-bottom: 0.35rem;
+}
+
+/* Pastel backgrounds by index */
+details.section-block:nth-of-type(6n+1) { background: var(--pastel-1); }
+details.section-block:nth-of-type(6n+2) { background: var(--pastel-2); }
+details.section-block:nth-of-type(6n+3) { background: var(--pastel-3); }
+details.section-block:nth-of-type(6n+4) { background: var(--pastel-4); }
+details.section-block:nth-of-type(6n+5) { background: var(--pastel-5); }
+details.section-block:nth-of-type(6n+6) { background: var(--pastel-6); } 
