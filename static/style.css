@@ -291,4 +291,90 @@ details.section-block:nth-of-type(6n+2) { background: var(--pastel-2); }
 details.section-block:nth-of-type(6n+3) { background: var(--pastel-3); }
 details.section-block:nth-of-type(6n+4) { background: var(--pastel-4); }
 details.section-block:nth-of-type(6n+5) { background: var(--pastel-5); }
-details.section-block:nth-of-type(6n+6) { background: var(--pastel-6); } 
+details.section-block:nth-of-type(6n+6) { background: var(--pastel-6); }
+
+/* -------------------------------------------------------- */
+/* Card Grid & CTA (Warmy-inspired Minimalist Layout)       */
+/* -------------------------------------------------------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--text-color);
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, var(--accent-color) 0%, #1a73e8 100%);
+  color: #fff;
+}
+
+.card:hover h3 {
+  color: #fff;
+}
+
+/* Pastel background variations for cards (Gestalt similarity) */
+.card:nth-of-type(6n+1) { background: var(--pastel-1); }
+.card:nth-of-type(6n+2) { background: var(--pastel-2); }
+.card:nth-of-type(6n+3) { background: var(--pastel-3); }
+.card:nth-of-type(6n+4) { background: var(--pastel-4); }
+.card:nth-of-type(6n+5) { background: var(--pastel-5); }
+.card:nth-of-type(6n+6) { background: var(--pastel-6); }
+
+/* CTA Section */
+.cta {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.cta h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #005ac1;
+  transform: translateY(-2px);
+} 
