@@ -1,0 +1,9 @@
+{
+  "name": "trebound-playbooks",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "embed": "node scripts/embedMarkdown.cjs"
+  },
+  "dependencies": {}
+} 
