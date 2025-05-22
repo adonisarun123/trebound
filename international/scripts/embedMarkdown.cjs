@@ -16,6 +16,13 @@ const pages = {
   'markets/vietnam.html': 'vietnam.md'
 };
 
+// Additional markets
+pages['markets/cambodia.html'] = 'cambodia.md';
+pages['markets/hong-kong.html'] = 'hong-kong.md';
+pages['markets/laos.html'] = 'laos.md';
+pages['markets/qatar.html'] = 'Qatar.md';
+pages['markets/saudi.html'] = 'Saudi.md';
+
 function embed(htmlPath, mdPath) {
   const markdown = fs.readFileSync(mdPath, 'utf8');
   let html = fs.readFileSync(htmlPath, 'utf8');
